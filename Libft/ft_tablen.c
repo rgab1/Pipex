@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_tablen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grivault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/22 06:24:13 by grivault          #+#    #+#             */
-/*   Updated: 2025/11/22 06:27:59 by grivault         ###   ########.fr       */
+/*   Created: 2026/04/10 20:58:59 by grivault          #+#    #+#             */
+/*   Updated: 2026/04/10 20:59:04 by grivault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_putstr_fd(char *s, int fd)
+size_t	ft_tablen(void **tab)
 {
-	size_t	i;
+	size_t	count;
 
-	if (fd < 0 || !s)
-		return ;
-	i = 0;
-	while (s[i])
-		ft_putchar_fd(s[i++], fd);
+	if (!tab)
+		return (0);
+	count = 0;
+	while (*tab)
+	{
+		tab++;
+		count++;
+	}
+	return (count);
 }

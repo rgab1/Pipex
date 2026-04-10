@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   free_strings.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grivault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/22 06:24:13 by grivault          #+#    #+#             */
-/*   Updated: 2025/11/22 06:27:59 by grivault         ###   ########.fr       */
+/*   Created: 2026/03/04 15:04:41 by grivault          #+#    #+#             */
+/*   Updated: 2026/03/04 15:22:00 by grivault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-#include "libft.h"
-
-void	ft_putstr_fd(char *s, int fd)
+void	free_strings(char **strings)
 {
-	size_t	i;
+	int	i;
 
-	if (fd < 0 || !s)
-		return ;
 	i = 0;
-	while (s[i])
-		ft_putchar_fd(s[i++], fd);
+	if (!strings)
+		return ;
+	while (strings[i])
+		free(strings[i++]);
+	free(strings);
 }

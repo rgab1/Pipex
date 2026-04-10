@@ -16,12 +16,22 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }				t_list;
 
+void	exit_error(char *error_msg, int error_code);
+size_t	ft_tablen(void **tab);
+void	puterror(char *error_msg);
+char	*get_next_line(int fd);
+int		ft_atoi_safe(const char *nptr, int *error);
+void	free_strings(char **strings);
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t nmemb, size_t size);

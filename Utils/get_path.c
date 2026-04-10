@@ -6,7 +6,7 @@
 /*   By: grivault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/18 17:48:17 by grivault          #+#    #+#             */
-/*   Updated: 2026/03/18 17:48:19 by grivault         ###   ########.fr       */
+/*   Updated: 2026/04/10 20:54:09 by grivault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*get_path(char *cmd, char **envp)
 		part = ft_strjoin(paths[i++], "/");
 		full = ft_strjoin(part, cmd);
 		free(part);
-		if (access(full, F_OK | X_OK) == 0)
+		if (full != NULL && access(full, F_OK | X_OK) == 0)
 			return (free_split(paths), full);
 		free(full);
 	}

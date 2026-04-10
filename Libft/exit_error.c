@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   exit_error.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grivault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/22 06:24:13 by grivault          #+#    #+#             */
-/*   Updated: 2025/11/22 06:27:59 by grivault         ###   ########.fr       */
+/*   Created: 2026/04/10 21:00:04 by grivault          #+#    #+#             */
+/*   Updated: 2026/04/10 21:00:06 by grivault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	exit_error(char *error_msg, int error_code)
 {
-	size_t	i;
-
-	if (fd < 0 || !s)
-		return ;
-	i = 0;
-	while (s[i])
-		ft_putchar_fd(s[i++], fd);
+	puterror(error_msg);
+	exit(error_code);
 }

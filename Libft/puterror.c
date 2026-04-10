@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   puterror.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: grivault <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/22 06:24:13 by grivault          #+#    #+#             */
-/*   Updated: 2025/11/22 06:27:59 by grivault         ###   ########.fr       */
+/*   Created: 2026/04/10 20:59:51 by grivault          #+#    #+#             */
+/*   Updated: 2026/04/10 20:59:53 by grivault         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	puterror(char *error_msg)
 {
-	size_t	i;
-
-	if (fd < 0 || !s)
+	if (!error_msg)
 		return ;
-	i = 0;
-	while (s[i])
-		ft_putchar_fd(s[i++], fd);
+	ft_putstr_fd("Error\n", 2);
+	ft_putstr_fd(error_msg, 2);
 }
