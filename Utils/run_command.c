@@ -14,17 +14,17 @@
 #include <pipex.h>
 #include <libft.h>
 
-static void	close_last(t_cmd *current)
+static void close_last(t_cmd *current)
 {
 	while (current->next)
 		current = current->next;
 	close(current->out_fd);
 }
 
-void	run_command(t_cmd *current, char **envp, t_cmd *head)
+void run_command(t_cmd *current, char **envp, t_cmd *head)
 {
-	char	*path;
-	int		exit_code;
+	char *path;
+	int exit_code;
 
 	if (current->in_fd == -1 || current->out_fd == -1)
 		return (free_list(head), exit(1));
